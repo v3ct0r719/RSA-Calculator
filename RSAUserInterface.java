@@ -18,8 +18,7 @@ import javax.swing.JTextArea;
 
 public class RSAUserInterface extends JFrame {
 
-	private static final long serialVersionUID = 4192081049915088589L;
-	
+	private static final long serialVersionUID = 1L;
 	private static final int textAreaColumns = 40;
 	private static final int textAreaRows = 5;
 

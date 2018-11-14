@@ -17,10 +17,8 @@ public class RSAKeyGenerator {
 	public KeySet generateKeys() {
 		System.out.println("Generating...");
 
-		Random randomNumberGenerator = new MersenneTwister();
+		Random randomNumberGenerator = new Random();
 
-		// to protect against Pollard or Williams factorization methods
-		// we require p+1 p-1 to be divisible by large primes
 		BigInteger p = BigInteger.valueOf(2);
 		while (!isDivisibleByLargePrime(p.add(BigInteger.ONE))
 				&& !isDivisibleByLargePrime(p.subtract(BigInteger.ONE)))
@@ -35,7 +33,7 @@ public class RSAKeyGenerator {
 		BigInteger totient = p.subtract(BigInteger.ONE).multiply(
 				q.subtract(BigInteger.ONE));
 
-		BigInteger e = BigInteger.valueOf(65537); // low Hamming weight and prime
+		BigInteger e = BigInteger.valueOf(65537); 
 		BigInteger d = e.modInverse(totient);
 
 		System.out.println("Generated!");
@@ -61,7 +59,6 @@ public class RSAKeyGenerator {
 		return reduced.compareTo(BigInteger.valueOf(65537)) > 0;
 	}
 	
-	// to generate your own keys without running the GUI
 	public static void main(String[] args) {
 		KeySet myKey = new RSAKeyGenerator().generateKeys();
 		System.out.println(myKey.toString());

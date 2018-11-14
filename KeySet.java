@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 public class KeySet {
 	BigInteger modulus, publicKey, privateKey;
-	public static final int radix = 36;
+	public static final int radix = 16;
 	
 	public KeySet(BigInteger modulus, BigInteger publicKeyExponent,
 			BigInteger privateKeyExponent) {
